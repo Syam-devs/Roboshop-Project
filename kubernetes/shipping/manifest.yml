@@ -1,0 +1,63 @@
+apiVersion: v1 
+kind: ConfigMap
+metadata:
+  name: shipping
+  namespace: roboshop
+  labels:
+    purpose: shipping
+    project: roboshop
+    tier: app
+data:
+  CART_ENDPOINT: cart:8080
+  DB_HOST: mysql
+---
+
+apiVersion: tiers/v1
+kind: Deployment
+metadata:
+  name: shipping
+  namespace: roboshop
+  labels:
+    purpose: shipping
+    project: roboshop
+    tier: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      purpose: shipping
+      project: roboshop
+      tier: app
+  template:
+    metadata:
+      labels:
+        purpose: shipping
+        project: roboshop
+        tier: app
+    spec:
+      containers:
+      - name: shipping
+        image: syam/shipping:v1
+        envFrom:
+        - ConfigMapRef:
+            name: shipping
+
+---
+apiVersion: v1 
+kind: Service
+metadata:
+  name: shipping
+  namespace: roboshop
+  labels:
+    purpose: shipping
+    project: roboshop
+    tier: app
+spec:
+  selector:
+    purpose: shipping
+    project: roboshop
+    tier: app
+  ports:
+  - Protocol: TCP
+    port: 8080
+    targetPort: 8080
