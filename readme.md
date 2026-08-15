@@ -6,7 +6,10 @@ The project covers infrastructure provisioning, configuration management, contai
 
 ## 🏗️ Architecture
 
-![RoboShop AWS DevOps Architecture](architecture.png)
+<img width="1536" height="1024" alt="architecture" src="https://github.com/user-attachments/assets/9930ad4e-97e1-49b8-8865-db153947891e" />
+
+**Architecture & Project Discussion:**
+**My Linkedin post:** https://lnkd.in/p/dM6CWCbm
 
 ### Deployment Flow
 
@@ -181,11 +184,6 @@ https://github.com/Syam-devs/Roboshop-Project
 
 **Architecture & Project Discussion:**
 https://lnkd.in/p/dM6CWCbm
-
-## 👨‍💻 Author
-
-**Syam Datti**
-Junior DevOps Engineer
 
 **AWS | Kubernetes | Terraform | Jenkins | Docker | Ansible**
 
